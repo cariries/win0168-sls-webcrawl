@@ -1,0 +1,35 @@
+service: aws-python38-webcrawl-layer
+frameworkVersion: '2'
+configValidationMode: warn
+
+custom:
+  stage: prod
+  region:
+  bucket:
+  imagever:
+
+provider:
+  name: aws
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:PutObject
+            - s3:PutObjectAcl
+          Resource: "arn:aws:s3:::${self:custom.bucket}/*"
+  ecr:
+    images:
+      win0168-v1_0_0:
+        path: ./
+
+functions:
+  server:
+    timeout: 60
+    memorySize: 2048
+    image:
+      name: ${self:custom.imagever}
+    environment:
+      BUCKET: ${self:custom.bucket}
