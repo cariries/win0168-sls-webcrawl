@@ -4,9 +4,9 @@ configValidationMode: warn
 
 custom:
   stage: prod
-  region:
-  bucket:
-  imagever:
+  region: ap-southeast-1
+  bucket: win0168.caririesservice.com
+  imagever: win0168-v1_0_0
 
 provider:
   name: aws
