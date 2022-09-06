@@ -44,7 +44,7 @@ def __serverless_chrome__(browser_binary, selenium_binary):
 def handler(event=None, context=None):
     browserBinary = "/opt/headless-chromium"
     seleniumBinary = "/opt/chromedriver"
-    targetUrl = "http://live.titan007.com/"
+    targetUrl = "http://live.titan007.com/index2in1_big.aspx?id=3"
     bucketName = os.getenv('BUCKETNAME')
     print("Bucket: ", bucketName)
 
