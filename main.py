@@ -45,7 +45,7 @@ def handler(event=None, context=None):
     browserBinary = "/opt/headless-chromium"
     seleniumBinary = "/opt/chromedriver"
     targetUrl = "http://live.titan007.com/index2in1_big.aspx?id=3"
-    bucketName = os.getenv('BUCKETNAME')
+    bucketName = os.getenv('BUCKET')
     print("Bucket: ", bucketName)
 
     driver = None
