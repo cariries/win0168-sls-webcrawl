@@ -44,7 +44,9 @@ class MatchInfo:
         date_string = ""
         for idx in range(len(date_array)):
             date_string += "" if (date_string == "") else ","
-            date_string += date_array[idx] #if (idx != 1) else str(int(date_array[idx])+1)
+            if idx == 1:
+                date_array[idx] = str(int(date_array[idx])+1)
+            date_string += date_array[idx]
         self.actual_date = datetime.strptime(date_string, '%Y,%m,%d,%H,%M,%S')
         days_in_month = calendar.monthrange(self.actual_date.year, self.actual_date.month)[1]
         self.actual_date += timedelta(days=days_in_month)
